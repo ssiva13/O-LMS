@@ -1,2 +1,2 @@
 ### Opigno LMS project installation.
-use `composer create-project opigno/opigno-composer`
+use `composer install`
