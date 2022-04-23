@@ -81,8 +81,7 @@
         "drupal/core-composer-scaffold": "~9.3.0",
         "opigno/opigno_lms": "^3.0.0",
         "drupal/jquery_ui_accordion": "^1.1",
-        "drupal/swiftmailer": "^2.2",
-        "drupal/symfony_mailer": "^1.0@alpha"
+        "drupal/smtp": "^1.0"
     },
     "require-dev": {
         "drush/drush": "^10",
@@ -113,10 +112,14 @@
     "prefer-stable": true,
     "scripts": {
         "post-install-cmd": [
+            "chmod go+w web/sites/default",
             "mkdir -p web/sites/default/files",
-            "chmod 777 web/sites/default/files",
+            "chmod a+w web/sites/default/files",
+            "mkdir -p web/sites/private",
+            "chmod a+w web/sites/private",
+            "chmod o-w web/sites/private",
             "cp web/sites/default/default.settings.php web/sites/default/settings.php",
-            "chmod 777 web/sites/default/settings.php"
+            "chmod go+w web/sites/default/settings.php"
         ]
     },
     "extra": {
